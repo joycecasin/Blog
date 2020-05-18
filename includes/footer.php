@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="py-4 bg-light fixed-bottom mt-4">
+<footer class="py-4 bg-dark fixed-bottom mt-4">
     <div class="container">
         <p class="m-0 text-center text-black">Copyright &copy; Your Website 2019</p>
     </div>

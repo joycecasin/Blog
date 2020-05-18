@@ -22,7 +22,7 @@
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="index.php">Joyce Casin </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,10 +40,10 @@
                 Recepten
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Ontbijt</a>
-                    <a class="dropdown-item" href="#">Middag</a>
-                    <a class="dropdown-item" href="#">Avond</a>
-                    <a class="dropdown-item" href="#">Dessert</a>
+                    <a class="dropdown-item" href="ontbijt.php">Ontbijt</a>
+                    <a class="dropdown-item" href="middag.php">Lunch</a>
+                    <a class="dropdown-item" href="avond.php">Dinner</a>
+                    <a class="dropdown-item" href="dessert.php">Dessert</a>
                     <a class="dropdown-item" href="#">Tips & Tricks</a>
                 </div>
                 </li>
