@@ -5,15 +5,22 @@
             <h2>Variabele titel</h2>
             <h3>Alle users</h3>
                     <?php 
-                   $result = User::find_all_users();
-                   while($row = mysqli_fetch_array($result)){
-                       echo $row['username'] . "<br>";
+                   $users = User::find_all_users();
+                   foreach($users as $user){
+                       echo $user->username . "<br>";
                    }
                     ?>
             <h3>Zoek user met id</h3>
             <?php 
+            /* Code om user per id weer te geven 
             $result = User::find_user_by_id(1);
-            echo $result['username'] . "<br>";
+            echo $result['username'] . "<br>";*/
+
+            /* Id user tonen als een object */
+            $user = User::find_user_by_id(1);                     
+
+            echo $user->username . ' - ' . $user->id . ' - ' . $user->voornaam;
+
             ?>
         </div>
 
