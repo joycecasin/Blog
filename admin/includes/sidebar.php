@@ -284,7 +284,7 @@
                 </li>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">perm_media</i>
+                    <i class="fas fa-comments"></i>
                         <span>Comments</span>
                     </a>
                     <ul class="ml-menu">
