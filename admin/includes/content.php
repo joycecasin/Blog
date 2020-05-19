@@ -2,6 +2,12 @@
     <div class="container-fluid">
         <div class="block-header">
             <h2>DASHBOARD</h2>
+            <h2>Variabele titel</h2>
+                    <?php 
+                    if($database->connection){
+                        echo "ok connectie gemaakt met de database";
+                    }
+                    ?>
         </div>
 
         <!-- Widgets -->
