@@ -3,11 +3,18 @@
         <div class="block-header">
             <h2>DASHBOARD</h2>
             <h2>Variabele titel</h2>
+            <h3>Alle users</h3>
                     <?php 
-                    if($database->connection){
-                        echo "ok connectie gemaakt met de database";
-                    }
+                   $result = User::find_all_users();
+                   while($row = mysqli_fetch_array($result)){
+                       echo $row['username'] . "<br>";
+                   }
                     ?>
+            <h3>Zoek user met id</h3>
+            <?php 
+            $result = User::find_user_by_id(1);
+            echo $result['username'] . "<br>";
+            ?>
         </div>
 
         <!-- Widgets -->
