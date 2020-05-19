@@ -10,6 +10,7 @@ class Session
     {
         session_start();
         $this->check_the_login();
+        $this->check_message();
     }
 
      /* Login methode */ 
@@ -42,6 +43,22 @@ class Session
         }
     }
 
+    public  function  message($msg=""){
+        if (!empty($msg)){
+            $_SESSION['message'] = $msg;
+        }else{
+            return $this->message;
+        }
+    }
+
+    private function check_message(){
+        if (isset($_SESSION['message'])){
+            $this->message = $_SESSION['message'];
+            unset($_SESSION['message']);
+        }else{
+            $this->message = "";
+        }
+    }
    
 
 }

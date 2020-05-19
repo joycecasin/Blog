@@ -2,7 +2,7 @@
 
 <?php
 // Als men ingelogd is, wordt men direct naar index.php doorverwezen
-if ($session->is_signed_in()){
+/* if ($session->is_signed_in()){
     redirect("index.php");
 }
 
@@ -23,7 +23,7 @@ if (isset($_POST['submit'])){
 }else{
     $username = "";
     $password = "";
-}
+}*/
 ?>
 <body class="bg-gradient-primary">
 
