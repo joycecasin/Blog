@@ -5,7 +5,7 @@
             <h2>Variabele titel</h2>
             <h3>Alle users</h3>
                     <?php 
-                   $users = User::find_all_users();
+                   $users = User::find_all();
                    foreach($users as $user){
                        echo $user->username . "<br>";
                    }
@@ -17,33 +17,35 @@
             echo $result['username'] . "<br>";*/
 
             /* Id user tonen als een object */
-            $user = User::find_user_by_id(1);                     
+            $user = User::find_by_id(1);
 
             echo $user->username . ' - ' . $user->id . ' - ' . $user->voornaam;
             ?>
             <?php
             /* Toevoegen van user  */
-           /* $user = new User();
-            $user->username = "Sam";
+            /*$user = new User();
+           $user->username = "Sam";
             $user->paswoord = "test123";
             $user->voornaam = "Sam";
             $user->familienaam = "test1";
             $user->email = "sam.test@gmail.com";
+           $user->username = "Test10";
 
-            $user->create();*/
+
+            $user->save();*/
             ?>
             <?php
             /* Uitvoeren van update functie */
-            $user = User::find_user_by_id(2);
-            $user->familienaam = "WILLIAMS";
+            /*$user = User::find_by_id(2);
+            $user->familienaam = "Casin";
 
-            $user->update();
+            $user->save();*/
             ?>
 
             <?php
             /* Verwijderen van user */
-            $user = User::find_user_by_id(5);
-            $user->delete();
+            /*$user = User::find_user_by_id(5);
+            $user->delete();*/
 
             ?>
         </div>
