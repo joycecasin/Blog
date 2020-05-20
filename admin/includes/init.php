@@ -1,8 +1,8 @@
 <?php
 require_once("config.php");
 require_once("Database.php");
-include("functions.php");
-include("User.php");
-include("Session.php");
+require_once("functions.php");
+require_once("User.php");
+require_once("Session.php");
 
 ?>
