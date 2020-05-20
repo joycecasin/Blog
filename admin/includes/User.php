@@ -55,7 +55,7 @@ class User
         return !empty($result) ? array_shift($result) : false;
         
     }
-
+    /* Controleren of username aanwezig is in database  */
     public static function verify_user($user, $pas){
         global $database;
         $username = $database->escape_string($user);
@@ -68,6 +68,56 @@ class User
 
         $the_result_array = self::find_this_query($sql);
         return !empty($the_result_array) ? array_shift($the_result_array) : false;
+
+    }
+
+    /* Create functie */
+    public function create(){
+        global $database;
+
+        $ins = "INSERT INTO user(username, paswoord, voornaam, familienaam, email)";
+        $ins .= "VALUES ('";
+        $ins .= $database->escape_string($this->username) . "', '";
+        $ins .= $database->escape_string($this->paswoord) . "', '";
+        $ins .= $database->escape_string($this->voornaam) . "', '";
+        $ins .= $database->escape_string($this->familienaam) . "', '";
+        $ins .= $database->escape_string($this->email) . "')";
+
+        if ($database->query($ins)){
+            $this->id = $database->the_insert_id();
+            return true;
+        }else{
+            return false;
+        }
+        $database->query($ins);
+    }
+
+    /* Update functie, wijzigen van user in database */
+    public function update(){
+        global $database;
+
+        $upd = "UPDATE user SET ";
+        $upd .= "username= '" . $database->escape_string($this->username) . "', ";
+        $upd .= "paswoord= '" . $database->escape_string($this->paswoord) . "', ";
+        $upd .= "voornaam= '" . $database->escape_string($this->voornaam) . "', ";
+        $upd .= "familienaam= '" . $database->escape_string($this->familienaam) . "', ";
+        $upd .= "email= '" . $database->escape_string($this->email) . "' ";
+        $upd .= "WHERE id = " . $database->escape_string($this->id);
+
+        $database->query($upd);
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+    }
+
+    /* Delete functie schrijven om een user te verwijderen */
+    public function delete(){
+        global $database;
+
+        $del = "DELETE FROM user ";
+        $del .= "WHERE id= " . $database->escape_string($this->id);
+        $del .= " LIMIT 1";
+
+        $database->query($del);
+        return (mysqli_affected_rows($database->connection) ==1) ? true : false;
 
     }
 }

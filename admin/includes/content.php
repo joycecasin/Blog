@@ -20,6 +20,30 @@
             $user = User::find_user_by_id(1);                     
 
             echo $user->username . ' - ' . $user->id . ' - ' . $user->voornaam;
+            ?>
+            <?php
+            /* Toevoegen van user  */
+           /* $user = new User();
+            $user->username = "Sam";
+            $user->paswoord = "test123";
+            $user->voornaam = "Sam";
+            $user->familienaam = "test1";
+            $user->email = "sam.test@gmail.com";
+
+            $user->create();*/
+            ?>
+            <?php
+            /* Uitvoeren van update functie */
+            $user = User::find_user_by_id(2);
+            $user->familienaam = "WILLIAMS";
+
+            $user->update();
+            ?>
+
+            <?php
+            /* Verwijderen van user */
+            $user = User::find_user_by_id(5);
+            $user->delete();
 
             ?>
         </div>
