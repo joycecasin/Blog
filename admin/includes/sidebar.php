@@ -237,7 +237,7 @@
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="active">
-                    <a href="index.html">
+                    <a href="index.php">
                         <i class="material-icons">home</i>
                         <span>Home</span>
                     </a>
@@ -249,10 +249,10 @@
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="#">Alle users</a>
+                            <a href="users.php">Alle users</a>
                         </li>
                         <li>
-                            <a href="#">Toevoegen user</a>
+                            <a href="add_user.php">Toevoegen user</a>
                         </li>
                         <li>
                             <a href="#">Wijzigen user</a>
