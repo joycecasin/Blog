@@ -16,6 +16,7 @@ class User extends Db_object
     public $user_foto;
     public $upload_directory = 'img' . DS . 'users';
     public $image_placeholder = 'http://place-hold.it/400x400&text=image';
+    public $tmp_path;
 
     /* Controleren of username aanwezig is in database  */
     public static function verify_user($user, $pas){
@@ -29,7 +30,7 @@ class User extends Db_object
         $sql .= "LIMIT 1";
 
         $the_result_array = self::find_this_query($sql);
-        return !empty($the_result_array) ? array_shift($the_result_array) : false;
+        return !empty($the_result_array) ? array_shift($the_result_array) : false ;
 
     }
 

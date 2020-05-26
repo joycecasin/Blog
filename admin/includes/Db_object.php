@@ -98,19 +98,19 @@ class Db_object
         $upd .= "WHERE id = " . $database->escape_string($this->id);*/
 
         $database->query($upd);
-        return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false ;
     }
 
     /* Delete functie schrijven om een user te verwijderen */
     public function delete(){
         global $database;
 
-        $del = "DELETE FROM " . static::$db_table;
-        $del .= "WHERE id= " . $database->escape_string($this->id);
+        $del = "DELETE FROM " . static::$db_table . " ";
+        $del .= " WHERE id= " . $database->escape_string($this->id);
         $del .= " LIMIT 1";
 
         $database->query($del);
-        return (mysqli_affected_rows($database->connection) ==1) ? true : false;
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false ;
     }
 
     /* Functie die alle properties van de class zal inlezen */
