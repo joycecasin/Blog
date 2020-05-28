@@ -29,7 +29,7 @@ if (isset($_POST['submit'])){
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <h2 style="margin-left: 350px ; margin-top: 50px">Welkom op de add user pagina</h2>
+            <h2 style="margin-left: 350px ; margin-top: 100px">Welkom op de add user pagina</h2>
             <form action="add_user.php" method="post" enctype="multipart/form-data">
                 <div class="col-md-8" style="margin-left: 350px">
                     <div class="form-group">

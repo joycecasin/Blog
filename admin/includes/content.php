@@ -2,64 +2,13 @@
     <div class="container-fluid">
         <div class="block-header">
             <h2>DASHBOARD</h2>
-            <h2>Variabele titel</h2>
-            <h3>Alle users</h3>
-                    <?php 
-                   $users = User::find_all();
-                   foreach($users as $user){
-                       echo $user->username . "<br>";
-                   }
-                    ?>
-            <h3>Zoek user met id</h3>
-            <?php 
-            /* Code om user per id weer te geven 
-            $result = User::find_user_by_id(1);
-            echo $result['username'] . "<br>";*/
-
-            /* Id user tonen als een object */
-            $user = User::find_by_id(1);
-
-            echo $user->username . ' - ' . $user->id . ' - ' . $user->voornaam;
-            ?>
-            <?php
-            /* Toevoegen van user  */
-            /*$user = new User();
-           $user->username = "Sam";
-            $user->paswoord = "test123";
-            $user->voornaam = "Sam";
-            $user->familienaam = "test1";
-            $user->email = "sam.test@gmail.com";
-           $user->username = "Test10";
-
-
-            $user->save();*/
-            ?>
-            <?php
-            /* Uitvoeren van update functie */
-            /*$user = User::find_by_id(2);
-            $user->familienaam = "Casin";
-
-            $user->save();*/
-            ?>
-
-            <?php
-            /* Verwijderen van user */
-            /*$user = User::find_user_by_id(5);
-            $user->delete();*/
-
-            ?>
         </div>
-
         <!-- Widgets -->
         <div class="row clearfix">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-pink hover-expand-effect">
                     <div class="icon">
                         <i class="material-icons">playlist_add_check</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">NEW TASKS</div>
-                        <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>
