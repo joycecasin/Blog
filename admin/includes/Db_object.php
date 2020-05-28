@@ -46,7 +46,7 @@ class Db_object
 
     public function has_the_attribute($the_attribute){
         $object_properties = get_object_vars($this);
-        return array_key_exists($the_attribute, $object_properties);
+        return array_key_exists($the_attribute,$object_properties);
     }
 
     /* Kijken of er een user is, indien 1 aanwezig gaan we die wijzigen anders gaan we die toevoegen */
@@ -59,13 +59,18 @@ class Db_object
         global $database;
         $properties = $this->clean_properties();
 
-        $ins = "INSERT INTO " . static::$db_table . " (" . implode(",", array_keys($properties)) .")";
+        /*$ins = "INSERT INTO " . static::$db_table . " (" . implode(",", array_keys($properties)) .")";
         $ins .= "VALUES ('";
         $ins .= $database->escape_string($this->username) . "', '";
         $ins .= $database->escape_string($this->paswoord) . "', '";
         $ins .= $database->escape_string($this->voornaam) . "', '";
         $ins .= $database->escape_string($this->familienaam) . "', '";
-        $ins .= $database->escape_string($this->email) . "')";
+        $ins .= $database->escape_string($this->email) . "')";*/
+
+        $ins = "INSERT INTO " . static::$db_table . " (" . implode(",", array_keys($properties)) . ")
+        VALUES ('" . implode("','", array_values($properties)) . "');
+        ";
+
 
         if ($database->query($ins)){
             $this->id = $database->the_insert_id();
@@ -88,7 +93,7 @@ class Db_object
 
         $upd = "UPDATE " . static::$db_table . " SET ";
         $upd .= implode(",", $properties_assoc);
-        $upd .= "WHERE id = " . $database->escape_string($this->id);
+        $upd .= " WHERE id = " . $database->escape_string($this->id);
 
         /*$upd .= "username= '" . $database->escape_string($this->username) . "', ";
         $upd .= "paswoord= '" . $database->escape_string($this->paswoord) . "', ";
@@ -134,6 +139,20 @@ class Db_object
         }
         return $clean_properties;
     }
+
+    //Locatie properties om een afbeelding in te laden
+    // Nodig om een foto even op te slaan in een temporary pad
+    public $errors = array();
+    public $upload_error_array = array(
+        UPLOAD_ERR_OK =>"There is no error",
+        UPLOAD_ERR_INI_SIZE =>"The upload file exceed the upload max_filesize from php.ini",
+        UPLOAD_ERR_FORM_SIZE =>"The upload file exceed MAX_FILE_SIZE in php.ini for html form",
+        UPLOAD_ERR_NO_FILE => "No file uploaded",
+        UPLOAD_ERR_PARTIAL => "The file was partially uploaded",
+        UPLOAD_ERR_NO_TMP_DIR => "Missing a temporary folder",
+        UPLOAD_ERR_CANT_WRITE => "Failed to write to disk",
+        UPLOAD_ERR_EXTENSION => "A php extension stopped your upload"
+    );
 
 
 }

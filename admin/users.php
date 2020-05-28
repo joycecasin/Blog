@@ -1,5 +1,4 @@
-<?php require_once("includes/header.php");
-
+<?php include("includes/header.php");
 // Enkel personen die zijn ingelogd mogen deze pagina zien
 if (!$session->is_signed_in()){
     redirect('sign-in.php');
@@ -7,18 +6,19 @@ if (!$session->is_signed_in()){
 $users = User::find_all();
 
 ?>
-<?php require_once("includes/sidebar.php"); ?>
+
+<?php include ("includes/sidebar.php"); ?>
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12" style="max-width: 1200px">
+        <div class="col-12" style="margin-left: 350px ; margin-top: 150px">
             <h2>USER</h2>
-            <td><a href="add_user.php" class="btn btn-primary rounded-0" style="margin-left: 350px ; margin-bottom: 50px ; margin-top: 50px"><i class="fas fa-user-plus"></i> User Toevoegen</a></td>
-            <table class="table table-header" style="margin-left: 350px ; margin-right: 350px">
+            <td><a href="add_user.php" class="btn btn-primary rounded-0"><i class="fas fa-user-plus"></i>User toevoegen </a></td>
+            <table class="table table-header">
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Photo</th>
+                    <th>Foto</th>
                     <th>Username</th>
                     <th>Voornaam</th>
                     <th>Familienaam</th>
@@ -35,13 +35,13 @@ $users = User::find_all();
                 foreach ($users as $user):
                     ?>
                     <tr>
-                        <td><?php echo $user->id; ?></td>
+                        <td><?php echo $user->id;?></td>
                         <td><img src="<?php echo $user->image_path_and_placeholder(); ?>" height="40" width="40" alt=""></td>
                         <td><?php echo $user->username; ?></td>
                         <td><?php echo $user->voornaam; ?></td>
                         <td><?php echo $user->familienaam; ?></td>
                         <td><?php echo $user->email; ?></td>
-                        <td><a href="add_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger rounded-0"><i class="fas fa-edit"></i></a></td>
+                        <td><a href="edit_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger rounded-0"><i class="fas fa-edit"></i></a></td>
                         <!-- Verwijderen van foto -->
                         <td><a href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger rounded-0"><i class="fas fa-trash-alt"></i></a></td>
                     </tr>
@@ -53,5 +53,5 @@ $users = User::find_all();
 </div>
 
 
-<?php require_once("includes/footer.php"); ?>
+<?php include ("includes/footer.php"); ?>
 
